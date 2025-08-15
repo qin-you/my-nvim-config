@@ -14,14 +14,16 @@ lspconfig.clangd.setup({
     "--clang-tidy-checks=*",
   },
 
-  handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      underline = false, -- if use underline to sign error
-      signs = true, -- error sign on left
-      virtual_text = false, -- virtual_text after line end
-      update_in_insert = true, -- if update error info in insert mode
-    }),
-  },
+-- yqin: old clangd config in nvim 0.9 and old lazyvim to disable error reporting
+-- this part moved to lua/plugins/lsp.lua
+  -- handlers = {
+  --   ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  --     underline = false, -- if use underline to sign error
+  --     signs = true, -- error sign on left
+  --     virtual_text = false, -- virtual_text after line end
+  --     update_in_insert = true, -- if update error info in insert mode
+  --   }),
+  -- },
 
   settings = {
     clangd = {
